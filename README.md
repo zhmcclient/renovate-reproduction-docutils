@@ -2,11 +2,12 @@
 
 ## Current behavior
 
-Renovate creates a PR that recommends upgrading docutils to >=0.21.2,<0.22.
+Renovate creates a PR that recommends upgrading docutils to >=0.21.2,<0.22
+for a requirements file that states the docutils dependency with a
+`python_version` constraint for Python ==3.8.
 
-The issue with that recommendation is that this project supports Python >=3.8
-and the minimum recommended docutils version 0.21.2 already requires
-Python >=3.9.
+The issue with that recommendation is that the minimum recommended docutils
+version 0.21.2 requires Python >=3.9 and therefore cannot be used on Python 3.8.
 
 The underlying issue seems to be that Renovate runs only once without a specific
 Python version context, so it does not have a chance to verify whether the
